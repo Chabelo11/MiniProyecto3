@@ -3,12 +3,6 @@
 --  Base de datos: MySQL / MariaDB
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS agenda_db
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE agenda_db;
-
 -- ------------------------------------------------------------
 -- Tabla: usuarios
 -- ------------------------------------------------------------

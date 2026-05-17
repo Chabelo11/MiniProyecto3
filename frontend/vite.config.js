@@ -10,7 +10,7 @@ export default defineConfig({
     }
   },
   // Para GitHub Pages: cambia 'agenda-app' por tu repo name
-  base: '/agenda-app/',
+  base: '/MiniProyecto3/',
   build: {
     outDir: 'dist'
   }
