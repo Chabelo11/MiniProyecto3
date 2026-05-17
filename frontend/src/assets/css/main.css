@@ -1,0 +1,242 @@
+/* src/assets/css/main.css */
+/* ═══════════════════════════════════════════════════════════
+   AgendaPro  —  Diseño: Dark Industrial / Refined Utility
+   Fuentes: Syne (títulos) + DM Sans (texto)
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-0:      #0a0a0f;
+  --bg-1:      #111118;
+  --bg-2:      #1a1a24;
+  --bg-card:   #16161f;
+  --border:    #2a2a3a;
+  --border-hi: #3d3d55;
+  --accent:    #6c63ff;
+  --accent-2:  #ff6584;
+  --accent-3:  #43e97b;
+  --text-1:    #f0f0ff;
+  --text-2:    #9090b0;
+  --text-3:    #5a5a7a;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow:    0 4px 24px rgba(0,0,0,0.45);
+  --shadow-xl: 0 8px 48px rgba(0,0,0,0.65);
+  --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-0);
+  color: var(--text-1);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar personalizada ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-1); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 4px; }
+
+/* ── Tipografía ── */
+h1, h2, h3, h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+a:hover { opacity: 0.8; }
+
+/* ── Layout utilitario ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32px 0 64px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.card:hover { border-color: var(--border-hi); box-shadow: var(--shadow); }
+
+/* ── Formularios ── */
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+
+label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+input, textarea, select {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 11px 15px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  width: 100%;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.18);
+}
+input::placeholder, textarea::placeholder { color: var(--text-3); }
+
+textarea { resize: vertical; min-height: 90px; }
+
+/* ── Botones ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 11px 26px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) { box-shadow: 0 4px 20px rgba(108,99,255,0.45); }
+
+.btn-danger {
+  background: var(--accent-2);
+  color: #fff;
+}
+.btn-danger:hover:not(:disabled) { box-shadow: 0 4px 20px rgba(255,101,132,0.4); }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-2);
+}
+.btn-ghost:hover:not(:disabled) { border-color: var(--border-hi); color: var(--text-1); }
+
+.btn-success {
+  background: var(--accent-3);
+  color: #0a0a0f;
+}
+.btn-success:hover:not(:disabled) { box-shadow: 0 4px 20px rgba(67,233,123,0.35); }
+
+/* ── Alertas ── */
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+}
+.alert-error   { background: rgba(255,101,132,0.12); border: 1px solid rgba(255,101,132,0.3); color: #ff8fa3; }
+.alert-success { background: rgba(67,233,123,0.1);  border: 1px solid rgba(67,233,123,0.3);  color: #43e97b; }
+
+/* ── Avatar ── */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-hi);
+}
+.avatar-lg { width: 96px; height: 96px; }
+.avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-2);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-3);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(108,99,255,0.18);
+  color: var(--accent);
+}
+
+/* ── Spinner ── */
+.spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Fade transition ── */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+/* ── Responsive grids ── */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+
+/* ── File input custom ── */
+.file-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.file-input-btn {
+  padding: 9px 18px;
+  background: var(--bg-2);
+  border: 1px dashed var(--border-hi);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-2);
+  pointer-events: none;
+  transition: border-color var(--transition);
+}
+.file-input-wrapper:hover .file-input-btn { border-color: var(--accent); color: var(--accent); }

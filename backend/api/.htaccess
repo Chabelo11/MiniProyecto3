@@ -1,0 +1,19 @@
+# api/.htaccess
+Options -Indexes
+
+# Evitar acceso directo a directorios
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# Permitir solo archivos PHP en /api
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Seguridad: no exponer archivos de configuración
+<Files "database.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
