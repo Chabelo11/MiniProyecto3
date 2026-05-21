@@ -3,11 +3,11 @@
 
 class Database {
     // ── Ajusta estos valores en tu servidor de hosting ──
-    private string $host     = 'localhost';
-    private string $db_name  = 'agenda_db';
-    private string $username = 'root';
-    private string $password = '';
-    private string $charset  = 'utf8mb4';
+    private $host = "mysql-aleajndro.alwaysdata.net";
+    private $db_name = "aleajndro_agenda_db";
+    private $username = "aleajndro";
+    private $password = "cabezas11";
+    public $conn;
 
     private ?PDO $connection = null;
 
